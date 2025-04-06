@@ -1,0 +1,16 @@
+<!--<p>galeria  222 works!</p>-->
+<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+
+
+ @for(imag of imagenes1; track $index)
+{
+    <div>
+    <img class="h-auto max-w-full rounded-lg" [src]="imag" height="500" width="500" alt = "">
+   <!--<img class="h-auto max-w-full rounded-lg" src="assets/imagenes/Nosotros-1.jpg" height="100" width="500" alt = "Foto">-->
+    </div>
+
+}
+</div>
+
+
+  

@@ -1,0 +1,11 @@
+.h1{
+    color:rgb(43, 102, 180);
+    font-size: larger;
+    text-align: right;
+}
+
+.p{
+    color:blue;
+    font-size: larger;
+    text-align: center;
+}
