@@ -1,19 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductosService } from '../../services/productos.service';
-import { GridGapProductosComponent } from "../grid-gap-productos/grid-gap-productos.component";
+import { Observable } from 'rxjs';
+import { RouterLink } from '@angular/router';
+
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-tabla-productos',
+  selector: 'app-grid-gap-productos',
   standalone: true,
-  imports: [],
-  templateUrl: './tabla-productos.component.html',
-  styleUrl: './tabla-productos.component.css'
+  imports: [RouterLink],
+  templateUrl: './grid-gap-productos.component.html',
+  styleUrl: './grid-gap-productos.component.css'
 })
-export class TablaProductosComponent {
+export class GridGapProductosComponent {
 
-  constructor(private ProductosService: ProductosService){}
+  constructor(private ProductosService: ProductosService, private authService: AuthService, private router: Router){}
   
   productos:any[] = [];
+
+  
+public user = this.authService.getUser();
 
   ngOnInit():void{
     this.ProductosService.getProductos().subscribe((data: any) => {

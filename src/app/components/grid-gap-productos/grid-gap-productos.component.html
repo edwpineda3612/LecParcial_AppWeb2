@@ -1,0 +1,31 @@
+<div class="container mx-auto py-8">
+    <h2 class="text-2xl font-bold mb-4">Catálogo de Tuberías</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      
+
+        @for(producto of productos; track $index){
+
+        <div  class="bg-white border border-gray-200 rounded-lg shadow">
+        <a href="#">
+            <img class="foto" src="{{producto.imagen_url}}" alt="{{producto.nombre}}">
+        </a>
+        <div class="p-5">
+          <a href="#">
+            <h5 class="mb-2 text-xl font-bold tracking-tight text-gray-900">{{producto.nombre}}</h5>
+          </a>
+          <p class="mb-3 font-normal text-gray-700">{{producto.descripcion}}</p>
+          <div class="flex items-center justify-between">
+            <span class="text-xl font-bold text-gray-900">${{producto.precio}}</span>
+            
+            @if  (user?.email === 'epineda@bestenergy.com.ec') 
+            {
+              <button [routerLink]="['/productos', producto.id]" type="button"  class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Editar Producto</button>
+              <button (click)="eliminar(producto.id)" type="button"  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Eliminar Producto</button>
+            }
+            </div>
+        </div>
+      </div>
+       }
+  
+    </div>
+  </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+
 import { Observable } from 'rxjs';
 
 
@@ -24,6 +24,11 @@ export class ProductosService {
   //Buscar Usuario por su ID
   getProductoById(id:string):Observable<any>{
   return this.http.get(`${this.API_PRODUCTOS}/productos/${id}.json`)
+  }
+
+  putProducto(id:string, producto:any):Observable<any>{
+    return this.http.put(`${this.API_PRODUCTOS}/productos/${id}.json`,producto);
+    
   }
 
 deleteProducto(id:string):Observable<any>{
